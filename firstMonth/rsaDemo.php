@@ -2,7 +2,7 @@
 
 /**
  * 加密
- * @param $toSign       //呆加密字符串
+ * @param $toSign       //待加密字符串
  * @param $privateKey   //私钥
  * @return string
  */
