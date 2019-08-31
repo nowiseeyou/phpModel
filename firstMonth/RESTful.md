@@ -36,8 +36,155 @@ RESET(Representational State Transfer ,简称REST),指的是一组架构约束�
 		}
 
 		public function getSite(){
-			$site = array($id => ($this->sites[$id]) ? $this->sites[$id] : $this->sites[1]);
+			$site = isset($this->sites[$id]) ? $this->sites[$id] : $this->sites[1];
+        	return $site;
 		}
 	}
+
+	
+## RESTful Services URI映射 ##
+
+RESTful Services URI应该设置为一个直观简短的资源地址，Apache服务器的.htaccess 应该设置好对应的Rewrite规则。
+
+1、获取所有站点列表
+
+    http://localhost/restexample/site/list/
+
+2、使用ID获取对应站点地址
+
+    http://localhost/restexample/site/list/3/
+
+项目的.htaccess文件配置规则如下所示
+
+    #开启 rewrite 功能
+	Options +FollowSymlinks
+	RewriteEngine on
+
+	#重写规则
+	RewriteRule ^site/list/$ RestController.php?view=all[nc,qsa]
+	RewriteRule ^site/list/([0-9]+)/$ RestController.php?view=single&id=$1 [nc,qsa]
+
+## RESTful Web Service 控制器##
+
+在 .htaccess 文件中，我们通过设置参数 'view' 来获取RestController.php文件中的对应请求，通过获取'view'不同参数来分到不同的方法上，RestController.php 文件代码如下：
+
+实例：
+
+    <?php 
+	require_once('siteRestHandler.php')
+	
+	$view = "";
+	if(isset($_GET['view'])) $view = $_GET['view'];
+
+	//RESTful service 控制器  URL 映射
+	
+	switch($view){
+		case  "all":
+			//处理 REST Url /site/list/
+			$siteRestHandler = new SiteRestHandler();
+			$siteRestHandler->getAllSites();
+			break;
+
+		case "single":
+			//处理 REST Url /site/show/<id>/
+			$siteRestHandler = new SiteRestHandler();
+			$siteRestHandler->getSite($_GET['id']);
+			break;
+		case "":
+			//404 - not found;
+			break;
+		
+	}
+
+## 简单的 RESTful 基础类 ##
+以下提供了RESTful 的一个基础类，用于处理响应请求的HTTP状态码，SimpleRest.php 文件代码如下：
+
+    <?php
+/**
+ * Class SimpleRest
+ * 一个简单的 RESTful web services 基类
+ * 我们可以基于这个类来扩展需求
+ */
+
+	class SimpleRest
+	{
+	    private $httpVersion = "HTTP/1.1";
+	
+	    /**
+	     * @param $contentType
+	     * @param $statusCode
+	     */
+	    public function setHttpHeaders($contentType,$statusCode){
+	
+	        $statusMessage = $this -> getHttpStatusMessage($statusCode);
+	
+	        header($this->httpVersion . "" . $statusCode. "" .$statusMessage);
+	        header("Content-Type".$contentType);
+	
+	    }
+	
+	    /**
+	     * @param $statusCode
+	     * @return mixed
+	     */
+	    public function getHttpStatusMessage($statusCode){
+	
+	        $httpStatus = array(
+	            100 => 'Continue',
+	            101 => 'Switching Protocols',
+	            200 => 'OK',
+	            201 => 'Created',
+	            202 => 'Accepted',
+	            203 => 'Non-Authoritative Information',
+	            204 => 'No Content',
+	            205 => 'Reset Content',
+	            206 => 'Partial Content',
+	            300 => 'Multiple Choices',
+	            301 => 'Moved Permanently',
+	            302 => 'Found',
+	            303 => 'See Other',
+	            304 => 'Not Modified',
+	            305 => 'Use Proxy',
+	            306 => '(Unused)',
+	            307 => 'Temporary Redirect',
+	            400 => 'Bad Request',
+	            401 => 'Unauthorized',
+	            402 => 'Payment Required',
+	            403 => 'Forbidden',
+	            404 => 'Not Found',
+	            405 => 'Method Not Allowed',
+	            406 => 'Not Acceptable',
+	            407 => 'Proxy Authentication Required',
+	            408 => 'Request Timeout',
+	            409 => 'Conflict',
+	            410 => 'Gone',
+	            411 => 'Length Required',
+	            412 => 'Precondition Failed',
+	            413 => 'Request Entity Too Large',
+	            414 => 'Request-URI Too Long',
+	            415 => 'Unsupported Media Type',
+	            416 => 'Requested Range Not Satisfiable',
+	            417 => 'Expectation Failed',
+	            500 => 'Internal Server Error',
+	            501 => 'Not Implemented',
+	            502 => 'Bad Gateway',
+	            503 => 'Service Unavailable',
+	            504 => 'Gateway Timeout',
+	            505 => 'HTTP Version Not Supported'
+	        );
+	        return ($httpStatus[$statusCode]) ? $httpStatus[$statusCode] : $httpStatus[500];
+	    }
+	}
+
+## RESTful Web Service 处理类 ##
+
+以下是一个RESTful Web Service处理类 SiteRestHandler.php ,继承了上面我们提供的Restful 基类，类中通过判断请求的参数来决定返回的HTTP 状态码以及数据格式，实例中我们提供了三种数据格式 "application/json"，"application/xml"，"text/html":
+
+
+**SiteRestHandler.php 文件代码如下：**
+
+	<?php
+	require_once("SimpleRest.php");
+	require_once("Site.php");
 
 	
