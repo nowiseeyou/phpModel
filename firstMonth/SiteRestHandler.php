@@ -65,5 +65,38 @@ class SiteRestHandler extends SimpleRest
         return $xml->asXML();
     }
 
+    /**
+     * @param $responseData
+     * @return false|string
+     */
+    public function encodeJson($responseData){
+        $jsonResponse = json_encode($responseData);
+        return $jsonResponse;
+    }
 
+    public function getSite($id){
+        $site = new Site();
+        $rawData = $site->getSite($id);
+
+        if(empty($rawData)){
+            $statusCode = 404;
+            $rawData = array('error'=> 'No sites found!');
+        }else{
+            $statusCode = 200;
+        }
+
+        $requestContentType = $_SERVER['HTTP_ACCEPT'];
+        $this->setHttpHeaders($requestContentType,$statusCode);
+
+        if(strpos($requestContentType,'application/json') != false){
+            $response = $this->encodeJson($rawData);
+            echo $response;
+        }elseif(strpos($requestContentType,'text/html') != false){
+            $response = $this->encodeHtml($rawData);
+            echo $response;
+        }elseif(strpos($requestContentType,'application/xml') != false){
+            $response = $this->encodeXml($rawData);
+            echo $response;
+        }
+    }
 }
