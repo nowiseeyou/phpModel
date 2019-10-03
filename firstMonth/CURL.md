@@ -32,23 +32,23 @@
 
 ## x-www-form-urlencoded ##
 
-function curlPost($url, $data)
-{
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 100);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 100);
-    curl_setopt_array($ch, array(
-        CURLOPT_HTTPHEADER => array(
-            "content-type: application/x-www-form-urlencoded",
-        ),
-        CURLOPT_SSL_VERIFYPEER => false,
-        CURLOPT_SSL_VERIFYHOST => false,
-    ));
-
-    $result = curl_exec($ch);
-    curl_close($ch);
-    return $result;
-}
+	function curlPost($url, $data)
+	{
+	    $ch = curl_init();
+	    curl_setopt($ch, CURLOPT_URL, $url);
+	    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 100);
+	    curl_setopt($ch, CURLOPT_TIMEOUT, 100);
+	    curl_setopt_array($ch, array(
+	        CURLOPT_HTTPHEADER => array(
+	            "content-type: application/x-www-form-urlencoded",
+	        ),
+	        CURLOPT_SSL_VERIFYPEER => false,
+	        CURLOPT_SSL_VERIFYHOST => false,
+	    ));
+	
+	    $result = curl_exec($ch);
+	    curl_close($ch);
+	    return $result;
+	}
