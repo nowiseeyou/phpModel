@@ -25,7 +25,7 @@
         $content = array(
             'name' => 'fdipzone'
         );
-        $response = $this->tocurl($url, $header, $content);
+        $response = curlPost($url, $content, $header);
         dump($response);
 
 
