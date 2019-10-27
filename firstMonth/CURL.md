@@ -98,3 +98,43 @@
 
 
 
+### XML ###
+
+
+	function post($url, $xml)
+	{
+	    $ch = curl_init();
+	    curl_setopt($ch, CURLOPT_URL, $url);
+	    curl_setopt($ch, CURLOPT_POST, 1);
+	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	    curl_setopt($ch, CURLOPT_HEADER, 0);
+	    curl_setopt($ch, CURLOPT_POSTFIELDS, $xml);
+	    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE); 
+	    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+	    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/xml; charset=utf-8', 'Content-Length:' . strlen($xml)));
+	    $ret = curl_exec($ch);
+	    curl_close($ch);
+	    return $ret;
+	}
+	
+	function arrayToXml($arr)
+	{
+	    $xml = "<xml>";
+	    foreach ($arr as $key => $val) {
+	        if (is_array($val)) {
+	            $xml .= "<" . $key . ">" . arrayToXml($val) . "</" . $key . ">";
+	        } else {
+	            $xml .= "<" . $key . ">" . $val . "</" . $key . ">";
+	        }
+	    }
+	    $xml .= "</xml>";
+	    return $xml;
+	}
+	
+	function xmlToArray($xml)
+	{    
+	        //禁止引用外部xml实体
+	    libxml_disable_entity_loader(true);
+	    $values = json_decode(json_encode(simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
+	    return $values;
+	}
