@@ -138,3 +138,26 @@
 	    $values = json_decode(json_encode(simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
 	    return $values;
 	}
+
+
+### POST json ###
+
+    function curlPostJson($url, $data ,$headers){
+	    $ch = curl_init();
+	    curl_setopt($ch, CURLOPT_POST, 1);
+	    curl_setopt($ch, CURLOPT_URL, $url);
+	    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+	    curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_0);
+	    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+	    ob_start();
+	    curl_exec($ch);
+	    $return_content = ob_get_contents();
+	    ob_end_clean();
+	    $return_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+	    return array($return_code, $return_content);
+	}
+
+	$header = array(
+	    "Content-Type: application/json; charset=utf-8",
+	    "Content-Length: " . strlen(json_encode($body)),
+	);
