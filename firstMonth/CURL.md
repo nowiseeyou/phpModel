@@ -162,6 +162,27 @@
 	    "Content-Length: " . strlen(json_encode($body)),
 	);
 
+
+### POST JSON 普通 ###
+
+	function postJson($url, $json){
+	    $header = array('Content-Type: application/json', 'Content-Length:' . strlen($json));
+	    $ch = curl_init ($url);
+	    curl_setopt($ch, CURLOPT_URL, $url);
+	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // 兼容本地没有指定curl.cainfo路径的错误
+	    curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+	    curl_setopt($ch, CURLOPT_POST, 1);
+	    curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
+	    $response = curl_exec($ch);
+	    if(curl_errno($ch)){
+	        // 显示报错信息；终止继续执行
+	        die(curl_error($ch));
+	    }
+	    curl_close($ch);
+	    return $response;
+	}
+
 ### GET ###
 
     function _httpGet($url=""){
