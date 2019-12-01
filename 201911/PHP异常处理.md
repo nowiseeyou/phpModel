@@ -59,5 +59,73 @@ PHP 5 提供了一种新的面向对象的错误处理方法。
 让我们触发一个异常：
 
     <?php
-	//创建一个有异常处理的函数
+		//创建一个有异常处理的函数
+		function checkNum($num){
+			if($number > 1){
+				throw new Exception("变量值必须小于等于 1")；
+			}
+			return true；
+		}
+	
+		try {
+			checkNum(2);
+			//如果抛出异常，以下文本不会输出
+			echo "如果输出该内容，说明 $number 变量";
+				
+		}catch(Exception $e){ //捕获异常
+			echo "Message:".$e->getMessage();
+		}
+
+上面代码将得到类似这样一个错误：
+    
+    Message:变量必须小于等于 1
+
+#### 实例解释: ####
+
+上面的代码抛出了一个异常，并捕获了它：
+ 
+1. 创建 checkNum() 函数。它检测数字是否大于 1。如果是，则抛出一个异常。
+2. 在 'try' 代码块中调用 checkNum() 函数。
+3.  checkNum() 函数中的异常被抛出。
+4.  "catch" 代码块接收到该异常，并创建一个包含异常信息的对象（$e）。
+5.  通过从这个 exception 对象调用 $e->getMessage() , 输出来自该异常的错误信息。
+
+然而，为了遵循 "每个 throw 必须对应一个 catch" 的原则，可以设置一个顶层的异常处理器来处理漏洞的错误。
+
+### 创建一个自定义的 Exception 类 ###
+
+创建自定义的异常处理程序非常简单。我们简单的创建了一个专门的类，当PHP中发生异常时，可调用其函数。该类必须是 exception 类的一个扩展。
+
+这个自定义的 customException 类继承了 PHP 的 exception 类的所有属性，您可向其添加自定义的函数。
+
+我们开始创建 customException 类：
+
+    <?php
+	class customException extends Exception{
+		public function errorMessage(){
+			//错误信息
+			$errorMsg = . '错误行号' . $this->getLine() . ' in ' .$this->getFile() . '<b>' . $this->getMessage() . '</b> 不是一个合法的 E-Mail 地址'；
+			return $errorMsg;
+		}
+
+	}
+
+	$email = "someone@example...com";
+
+	try{
+		//检测邮箱
+		if(filter_var($email,FILTER_VARIDATE_EMAIL) === false){
+			//如果是个不合法的邮箱地址，抛出异常
+			throw new customException($email);
+		}
+	}catch(customException $e){
+		//display custom message
+		echo $e->errorMessage();
+	}
+	
+
+
+	
+ 
+
 
