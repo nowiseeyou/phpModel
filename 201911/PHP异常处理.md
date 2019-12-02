@@ -80,7 +80,7 @@ PHP 5 提供了一种新的面向对象的错误处理方法。
     
     Message:变量必须小于等于 1
 
-#### 实例解释: ####
+**实例解释：**
 
 上面的代码抛出了一个异常，并捕获了它：
  
@@ -122,10 +122,97 @@ PHP 5 提供了一种新的面向对象的错误处理方法。
 		//display custom message
 		echo $e->errorMessage();
 	}
-	
 
 
+这个新的类是旧的 exception 类的副本，外加 errorMessage() 函数。正因为它是旧类的副本，因此它从旧类继承了属性和方法，我们可以使用 exception 类的方法，比如 getLine(),getFile() 和 getMessage() 。
+
+**实例解释：**
+
+上面的代码抛出了一个异常，并通过一个自定义的 exception 类来捕获它：
+
+1. customException() 类是作为旧的 exception 类的一个扩展来创建的。这样它就继承了旧的 exception 类的所有属性和方法。
+2. 创建 errorMessage() 函数。如果 e-mail 地址不合法，则函数返回一条错误信息。
+3. 把 $email 变量设置为一个字符串，该字符串是一个有效的 e-mail 地址，但包含字符串 "example"。
+4. 执行 "try" 代码块，在第一个条件下不会抛出异常。
+5. 由于 e-mail 含有字符串 "example"，第二个条件会触发异常。
+6. "catch" 代码块会捕获异常，并显示恰当的错误信息。
+
+如果 customeException 类抛出了异常，但没有捕获 customException，仅仅捕获了 base exception，则在那里处理异常。
+
+### 重新抛出异常 ###
+
+有时，当异常被抛出时，您也许希望以不同于标准的方式对它进行处理。可以在一个 "catch" 代码块中再次抛出异常。
+
+脚本应该对用户隐藏系统错误。对程序员来说，系统错误也许很重要，但是用户对它们并不感兴趣。为了让用户更容易使用，你可以再次抛出带有对用户比较友好的消息异常：
+
+    <?php
+	class customException extends Exception{
+		public function errorMessage(){
+			//错误信息
+			$errorMsg = $this->getMessage() . '不是一个合法的 E-MAIL 地址';
+			return $errorMsg;
+		}
+	}
+
+	$email = "someone@example.com";
+
+	try{
+		try{
+			//检测 "example" 是否在邮箱地址中
+			if(strpos($email,"example") != FALSE){
+				//如果是个不合法的邮箱地址，抛出异常
+				throw new Exception($email);
+			}
+		}catch(Exception $e){
+			//重新抛出异常
+			throw new customException($email);
+		}
+	}catch(customException $e){
+		//显示自定义信息
+		echo $e->errorMessage();
+	}
+
+**实例解释：**
+
+上面的代码检测在邮箱地址中是否含有字符串 "example"。如果有，则再次抛出异常：
+
+1. customException() 类是作为旧的 exception 类的一个扩展来创建的。这样它就继承了旧的 exception 类的所有属性和方法。
+2. 创建 errorMessage() 函数。如果 e-mail 地址不合法，则该函数返回了一个错误信息。
+3. 把 $email 变量设置为一个字符串，该字符串是一个有效的 e-mail 地址，但包含字符串 "example"。
+4. "try" 在代码块包含另一个 "try" 代码块，这样就可以再次抛出异常。
+5. 由于 e-mail 包含字符串 "example",因此触发异常。
+6. "catch" 代码块捕获到了该异常，并重新抛出 "customException"。
+7. 捕获到 "customException"，并显示一条错误信息。
+
+如果在当前的 'try' 代码块中异常没有被捕获，则它将在更高层级上查找 'catch' 代码块。
+
+### 设置顶层异常处理器 ###
+
+set_exception_handler() 函数可设置处所有未捕获异常的用户定义函数。
+
+    <?php
+	function myException($exception){
+		echo "<b>Exception:</b>" . $exception->getMessage();
+	}
+
+	set_exception_handler("myException");
 	
- 
+	throw new Exception('Uncaught Exception occurred');
+
+输出结果：
+
+    Exception: Uncaught Exception occurred
+
+在上面的代码中，不存在 'catch' 代码块，而是触发顶层的异常处理程序。应该使用此函数来捕获所有未被捕获的异常。
+
+### 异常规则 ###
+
+- 需要进行异常处理的代码应该放入 try 代码块内，以便捕获潜在的异常。
+- 每个 try 或 throw 代码块必须至少拥有一个对应的 catch 代码块。
+- 使用多个 catch 代码块可以捕获不同种类的异常。
+- 可以在 try 代码块内的 catch 代码中抛出（再次抛出） 异常
+
+简而言之：如果抛出了异常，就必须捕获它。
+
 
 
