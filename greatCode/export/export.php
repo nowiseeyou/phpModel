@@ -170,7 +170,7 @@ class export
         echo "\xEF\xBB\xBF";
         echo $exportContent;
         //记录日志
-        $this->addLog(81, "导出投注记录", '0','投注记录','');
+        $this->addLog('导出记录');
     }
 
 
@@ -182,5 +182,8 @@ class export
         }
 
         return $str;
+    }
+    private function addLog($str=''){
+        echo "记录日志成功";
     }
 }
