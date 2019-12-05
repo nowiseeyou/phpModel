@@ -167,7 +167,7 @@ class export
         //导出csv
         header('Content-Disposition: attachment; filename=bet.csv');
         header('Content-Type: text/csv');
-        echo "\xEF\xBB\xBF";
+        echo "\xEF\xBB\xBF";//写入UTF-8 BOM,此处如果不写入就会导致写入的汉字乱码
         echo $exportContent;
         //记录日志
         $this->addLog('导出记录');
