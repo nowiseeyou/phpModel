@@ -158,7 +158,7 @@ class export
             exit('缺少必要的參數');
         }
 
-        $tmp_file = $_SERVER['DOCUMENT_ROOT'].'/customise/export/bet_export_'.$_GET['id'].'.csv';
+        $tmp_file = $_SERVER['DOCUMENT_ROOT'].'/export/export_'.$_GET['id'].'.csv';
 
         $exportContent = '';
         for ($i = 0; $i < $_GET['process']; $i++) {
