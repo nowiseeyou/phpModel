@@ -17,3 +17,4 @@
 
 - bccomp — 比较两个任意精度的数字 返回 int。
 - bcsub — 2个任意精度数字的减法。
+- array_key_exists — 检查数组里是否有指定的键名或索引 bool
