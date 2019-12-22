@@ -19,3 +19,5 @@
 - bcsub — 2个任意精度数字的减法。
 - array_key_exists — 检查数组里是否有指定的键名或索引 bool
 - array_shift — 将数组开头的单元移出数组
+- http_build_query — 生成 URL-encode 之后的请求字符串
+- parse_str — 将字符串解析成多个变量
