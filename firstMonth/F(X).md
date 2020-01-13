@@ -22,3 +22,8 @@
 - http_build_query — 生成 URL-encode 之后的请求字符串
 - parse_str — 将字符串解析成多个变量
 - array_merge() — 函数把一个或多个数组合并为一个数组。**注：**如果两个或更多个数组元素有相同的键名，则最后的元素会覆盖其他元素。
+
+
+
+	 # 多维数组处理  
+     https://www.awaimai.com/2064.html 
