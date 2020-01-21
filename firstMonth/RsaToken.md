@@ -10,7 +10,7 @@
 	     * @param $privateKey   //私钥
 	     * @return string
 	     */
-	    public function encryptSign($data){
+	    public function encrypt($data){
 	        $privateKey = "-----BEGIN RSA PRIVATE KEY-----\n" .
 	            wordwrap($this->privateKey, 64, "\n", true) .
 	            "\n-----END RSA PRIVATE KEY-----";
@@ -29,7 +29,7 @@
 	     * @param $pubKey
 	     * @return bool
 	     */
-	    public function verifySign($data){
+	    public function decrypt($data){
 	        $data = base64_decode($data);
 	        $decrypt = "";
 	        $pubKey = "-----BEGIN PUBLIC KEY-----\n" .
