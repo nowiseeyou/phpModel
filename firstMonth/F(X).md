@@ -24,8 +24,9 @@
 - array_merge() — 函数把一个或多个数组合并为一个数组。**注：**如果两个或更多个数组元素有相同的键名，则最后的元素会覆盖其他元素
 - array_column — 返回数组中指定的一列
 - array_unshift — 在数组开头插入一个或多个单元
-
-
+- array_shift() - 将数组开头的单元移出数组
+- array_push() - 将一个或多个单元压入数组的末尾（入栈）
+- array_pop() - 弹出数组最后一个单元（出栈）
 
 	 # 多维数组处理  
      https://www.awaimai.com/2064.html 
