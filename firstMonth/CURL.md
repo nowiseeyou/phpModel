@@ -202,3 +202,8 @@
 
         return $res;
     }
+
+
+### 接收文件流 ###
+
+    $receiveStreamFile = file_get_contents("php://input")；
