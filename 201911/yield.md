@@ -2,8 +2,6 @@
 
 ## 携程（yield） ##
 	
-	TODO: 暂时不知道怎么用！！！
-
     function getValues1() {
 	    $valuesArray = [];
 	    // 获取初始内存使用量
@@ -57,3 +55,18 @@
 	foreach ($generator as $value) {
 	    echo "$value\n";
 	}
+
+## 生成器 ##
+
+    
+	function xrange($start, $end) {
+		for ($i = $start; $i <= $end; $i++){
+			yield $i;
+		}
+	}
+
+	foreach ( xrange(1,100000) as $num ) {
+		echo $num . "<br />";
+	}
+
+**记住，一个函数中如果用了yield，他就是一个生成器，直接调用他是没有用的，不能等同于一个函数那样去执行！**
