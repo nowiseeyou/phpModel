@@ -2,8 +2,6 @@
 
 ## 携程（yield） ##
 	
-	TODO: 暂时不知道怎么用！！！
-
     function getValues1() {
 	    $valuesArray = [];
 	    // 获取初始内存使用量
