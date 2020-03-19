@@ -31,6 +31,7 @@
 - array_push() - 将一个或多个单元压入数组的末尾（入栈）
 - array_pop() - 弹出数组最后一个单元（出栈）
 - preg_replace — 执行一个正则表达式的搜索和替换
+- array_map — 为数组的每个元素应用回调函数
 
 ### 多维数组处理  ###
      https://www.awaimai.com/2064.html 
