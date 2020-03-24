@@ -16,6 +16,7 @@
 5. filter_var_array() — 获取多个变量，并进行过滤。
 6. filter_var() — 获取一个变量，并进行过滤。
 7. array_unique — 移除数组中重复的值。
+8. array_merge_recursive — 递归地合并一个或多个数组
 
 ----------
 
