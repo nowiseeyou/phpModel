@@ -20,6 +20,7 @@
 9. array_key_exists — 检查数组里是否有指定的键名或索引
 10. array_key_first — Gets the first key of an array
 11. array_key_last — Gets the last key of an array
+12. array_product — 计算数组中所有值的乘积
 ----------
 
 - bccomp — 比较两个任意精度的数字 返回 int。
