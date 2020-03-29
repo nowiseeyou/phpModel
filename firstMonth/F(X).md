@@ -21,6 +21,7 @@
 10. array_key_first — Gets the first key of an array
 11. array_key_last — Gets the last key of an array
 12. array_product — 计算数组中所有值的乘积
+13. array_change_key_case — 将数组中的所有键名修改为全大写或小写
 ----------
 
 - bccomp — 比较两个任意精度的数字 返回 int。
