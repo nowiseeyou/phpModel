@@ -5,6 +5,7 @@
 - strtolower() — 转小写
 - stripslashes() — 反引用一个引用字符串
 - mb_strstr — 查找字符串在另一个字符串里的首次出现 返回查找字符开始到最后的字符
+- range — 根据范围创建数组，包含指定的元素
 
 
 #### PHP Filter 函数 ####
