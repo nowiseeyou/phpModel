@@ -24,6 +24,7 @@
 12. array_product — 计算数组中所有值的乘积
 13. array_change_key_case — 将数组中的所有键名修改为全大写或小写
 14. array_fill — 用给定的值填充数组
+15. array_key_exists — 检查数组里是否有指定的键名或索引
 ----------
 
 - bccomp — 比较两个任意精度的数字 返回 int。
