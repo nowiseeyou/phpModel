@@ -27,6 +27,7 @@
 15. array_key_exists — 检查数组里是否有指定的键名或索引
 16. array_count_values — 统计数组中所有的值
 17. array_intersect_assoc — 带索引检查计算数组的交集
+18. array_flip — 交换数组中的键和值
 ----------
 
 - bccomp — 比较两个任意精度的数字 返回 int。
