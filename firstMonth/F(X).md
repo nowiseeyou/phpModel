@@ -5,6 +5,7 @@
 - strtolower() — 转小写
 - stripslashes() — 反引用一个引用字符串
 - mb_strstr — 查找字符串在另一个字符串里的首次出现 返回查找字符开始到最后的字符
+- range — 根据范围创建数组，包含指定的元素
 
 
 #### PHP Filter 函数 ####
@@ -22,6 +23,11 @@
 11. array_key_last — Gets the last key of an array
 12. array_product — 计算数组中所有值的乘积
 13. array_change_key_case — 将数组中的所有键名修改为全大写或小写
+14. array_fill — 用给定的值填充数组
+15. array_key_exists — 检查数组里是否有指定的键名或索引
+16. array_count_values — 统计数组中所有的值
+17. array_intersect_assoc — 带索引检查计算数组的交集
+18. array_flip — 交换数组中的键和值
 ----------
 
 - bccomp — 比较两个任意精度的数字 返回 int。
