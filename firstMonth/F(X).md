@@ -64,3 +64,8 @@
 - implode — 将一个一维数组的值转化为字符串
 - explode — 使用一个字符串分割另一个字符串
 - stripos — 查找字符串首次出现的位置（不区分大小写）
+
+
+### Magic Methods ###
+
+- __construct()：类的构造函数
