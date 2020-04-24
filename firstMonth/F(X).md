@@ -78,3 +78,5 @@
 - __set() ： 设置一个类的成员变量时调用
 - __inset() ： 当对不可访问属性调用isset()或 empty()时被调用
 - __unset() ： 当对不可访问属性调用 unset() 时被调用
+- __sleep() ： 执行 serialize() 时，先调用这个函数
+- __wakeup() ： 执行 unserialize() 时候，先调用这个函数
