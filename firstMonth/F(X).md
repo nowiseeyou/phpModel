@@ -80,3 +80,9 @@
 - __unset() ： 当对不可访问属性调用 unset() 时被调用
 - __sleep() ： 执行 serialize() 时，先调用这个函数
 - __wakeup() ： 执行 unserialize() 时候，先调用这个函数
+- __toString()  ： 类被当成字符串时的回应方法
+- __invoke() ： 调用函数的方式调用一个对象时的回应方法
+- __set_state() ： 调用var_export() 导出类时，此静态方法会被调用。
+- __clone() ： 当对象复制完成时调用
+- __autoload ： 尝试加载未定义的类
+- __debuginfo() ： 答应所需调试信息
