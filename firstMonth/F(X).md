@@ -86,3 +86,8 @@
 - __clone() ： 当对象复制完成时调用
 - __autoload ： 尝试加载未定义的类
 - __debuginfo() ： 答应所需调试信息
+
+
+### 程序执行函数 ###
+
+- shell_exec(string $cmd) :string ： 通过shell 环境执行命令。并且将完整的输出以字符串的方式返回。
