@@ -96,3 +96,8 @@
 - shell_exec(string $cmd) :string ： 通过shell 环境执行命令。并且将完整的输出以字符串的方式返回。
 - instanceof 用于确定一个 PHP 变量是否属于某一类 class 的实例。
 - declare 结构用来设定一段代码的执行指令 （暂时没搞懂）
+
+
+### 函数处理 函数 ###
+
+- call_user_func — 把第一个参数作为回调函数调用。
