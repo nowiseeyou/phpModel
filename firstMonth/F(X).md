@@ -67,6 +67,7 @@
 - bin2hex — 函数把包含数据的二进制字符串转换为十六进制值
 - strlen — 获取字符串长度
 - str_shuffle — 随机打乱一个字符串
+- htmlspecialchars_decode — 将特殊的 HTML 实体转换回普通字符
 
 
 ### Magic Methods ###
