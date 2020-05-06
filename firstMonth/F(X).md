@@ -68,6 +68,7 @@
 - strlen — 获取字符串长度
 - str_shuffle — 随机打乱一个字符串
 - htmlspecialchars_decode — 将特殊的 HTML 实体转换回普通字符
+- htmlspecialchars — 将特殊字符转换为 HTML 实体
 
 
 ### Magic Methods ###
