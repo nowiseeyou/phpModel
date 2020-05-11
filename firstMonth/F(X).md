@@ -70,6 +70,7 @@
 - htmlspecialchars_decode — 将特殊的 HTML 实体转换回普通字符
 - htmlspecialchars — 将特殊字符转换为 HTML 实体
 - str_repeat — 重复一个字符串
+- strip_tags — 从字符串中去除 HTML 和 PHP 标记
 
 
 ### Magic Methods ###
