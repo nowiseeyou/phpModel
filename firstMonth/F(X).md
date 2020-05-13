@@ -65,6 +65,7 @@
 - explode — 使用一个字符串分割另一个字符串
 - stripos — 查找字符串首次出现的位置（不区分大小写）
 - bin2hex — 函数把包含数据的二进制字符串转换为十六进制值
+- hex2bin — 转换十六进制字符串为二进制字符串
 - strlen — 获取字符串长度
 - str_shuffle — 随机打乱一个字符串
 - htmlspecialchars_decode — 将特殊的 HTML 实体转换回普通字符
