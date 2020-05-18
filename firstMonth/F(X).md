@@ -97,6 +97,7 @@
 - __clone() ： 当对象复制完成时调用
 - __autoload ： 尝试加载未定义的类
 - __debuginfo() ： 答应所需调试信息
+- __autoload — 尝试加载未定义的类 （spl_autoload_register — 注册给定的函数作为 __autoload 的实现）
 
 ### 程序控制 ###
 
