@@ -34,8 +34,6 @@
 - bcsub — 2个任意精度数字的减法。
 - array_key_exists — 检查数组里是否有指定的键名或索引 bool
 - array_shift — 将数组开头的单元移出数组
-- http_build_query — 生成 URL-encode 之后的请求字符串
-- parse_str — 将字符串解析成多个变量
 - array_merge() — 函数把一个或多个数组合并为一个数组。**注：**如果两个或更多个数组元素有相同的键名，则最后的元素会覆盖其他元素
 - array_column — 返回数组中指定的一列
 - array_unshift — 在数组开头插入一个或多个单元
@@ -118,3 +116,17 @@
 ### PHP 选项/信息 函数 ###
 
 - get_defined_constants — 返回所有常量的关联数组，键是常量名，值是常量值
+
+### URL函数 ###
+
+- base64_decode — 对使用 MIME base64 编码的数据进行解码
+- base64_encode — 使用 MIME base64 对数据进行编码
+- get_headers — 湖区服务器响应一个 HTTP 请求所发送的所有标头
+- get_meta_tags — 从一个文件中提取所有的 meta 标签 content属性，返回一个数组
+- http_build_query — 生成 URL-encode 之后的请求字符串
+- parse_str — 将字符串解析成多个变量
+- parse_url — 解析 URL，返回其组成部分
+- rawurldecode — 对已编码的URL 字符串进行解码
+- rawurlencode — 按照 RFC 3986 对 URL 进行编码
+- urldecode — 解码已编码的 URL 字符串
+- urlencode — 编码 URL 字符串
