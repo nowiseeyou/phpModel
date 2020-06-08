@@ -1,0 +1,5 @@
+## Hash 函数 ##
+
+- hash_algos — 返回已注册哈希算法列表
+- hash_copy — 拷贝哈希运行上下文
+- hash_equals — 可防止时序攻击的字符串比较
