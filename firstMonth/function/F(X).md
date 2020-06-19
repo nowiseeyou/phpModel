@@ -75,7 +75,8 @@
 - strip_tags — 从字符串中去除 HTML 和 PHP 标记
 - str_word_count — 返回字符串中单词的使用情况
 - strtolower — 将字符串转化为小写
-- strtouper _ 将字符串转化为答谢
+- strtouper — 将字符串转化为答谢
+- str_split — 将字符串转换为数组
 
 
 ### Magic Methods ###
