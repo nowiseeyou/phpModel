@@ -135,3 +135,6 @@
 - rawurlencode — 按照 RFC 3986 对 URL 进行编码
 - urldecode — 解码已编码的 URL 字符串
 - urlencode — 编码 URL 字符串
+
+		# 设置应该报告何种PHP 错误
+		error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
