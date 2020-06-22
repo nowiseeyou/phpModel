@@ -19,18 +19,19 @@
 
 
 #### Array ####
-1. array_unique — 移除数组中重复的值。
-2. array_merge_recursive — 递归地合并一个或多个数组
-3. array_key_exists — 检查数组里是否有指定的键名或索引
-4. array_key_first — Gets the first key of an array
-5. array_key_last — Gets the last key of an array
-6. array_product — 计算数组中所有值的乘积
-7. array_change_key_case — 将数组中的所有键名修改为全大写或小写
-8. array_fill — 用给定的值填充数组
-9. array_key_exists — 检查数组里是否有指定的键名或索引
-10. array_count_values — 统计数组中所有的值
-11. array_intersect_assoc — 带索引检查计算数组的交集
-12. array_flip — 交换数组中的键和值
+- array_unique — 移除数组中重复的值。
+- array_merge_recursive — 递归地合并一个或多个数组
+- array_key_exists — 检查数组里是否有指定的键名或索引
+- array_key_first — Gets the first key of an array
+- array_key_last — Gets the last key of an array
+- array_product — 计算数组中所有值的乘积
+- array_change_key_case — 将数组中的所有键名修改为全大写或小写
+- array_fill — 用给定的值填充数组
+- array_key_exists — 检查数组里是否有指定的键名或索引
+- array_count_values — 统计数组中所有的值
+- array_intersect_assoc — 带索引检查计算数组的交集
+- array_flip — 交换数组中的键和值
+
 ----------
 
 - array_key_exists — 检查数组里是否有指定的键名或索引 bool
@@ -50,6 +51,7 @@
 - krsort — 对数组按照键名逆向排序
 
 ### 多维数组处理  ###
+
      https://www.awaimai.com/2064.html 
 
 ### PHP指针操作 ###
