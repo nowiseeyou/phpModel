@@ -31,6 +31,7 @@
 - array_count_values — 统计数组中所有的值
 - array_intersect_assoc — 带索引检查计算数组的交集
 - array_flip — 交换数组中的键和值
+- array_combine() — 创建一个数组，用一个数组的值作为键名，另一个数组的值作为其值
 
 ----------
 
