@@ -9,4 +9,6 @@
 	openssl_private_encrypt — 使用私钥加密数据
 	openssl_public_decrypt — 使用公钥解密数据
 	openssl_public_encrypt — 使用公钥加密数据
+	openssl_sign — 生成签名
+	openssl_free_key — 释放密钥资源
 	 
