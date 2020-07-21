@@ -6,7 +6,6 @@
 - bcmul — 2个任意精度数字乘法计算
 - bccomp — 比较两个任意精度的数字 返回 int。
 - bcsub — 2个任意精度数字的减法。
-- boolval — 获取变量的布尔值
 
 #### PHP Filter 函数 ####
 
