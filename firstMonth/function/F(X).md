@@ -7,7 +7,6 @@
 - bccomp — 比较两个任意精度的数字 返回 int。
 - bcsub — 2个任意精度数字的减法。
 
-
 #### PHP Filter 函数 ####
 
 1. filter_has_var() — 检查是否存在指定输入类型的变量。
