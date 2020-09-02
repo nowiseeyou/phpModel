@@ -1,12 +1,3 @@
-### PHP常用函数（F(x)） ###
-
-- array_filter()  — 用回调函数过滤数组中的单元（非false情况下返回对应值）
-- mb_strstr — 查找字符串在另一个字符串里的首次出现 返回查找字符开始到最后的字符
-- range — 根据范围创建数组，包含指定的元素
-- bcmul — 2个任意精度数字乘法计算
-- bccomp — 比较两个任意精度的数字 返回 int。
-- bcsub — 2个任意精度数字的减法。
-
 #### PHP Filter 函数 ####
 
 1. filter_has_var() — 检查是否存在指定输入类型的变量。
@@ -18,6 +9,8 @@
 
 
 #### Array ####
+- array_filter()  — 用回调函数过滤数组中的单元（非false情况下返回对应值）
+- range — 根据范围创建数组，包含指定的元素
 - array_unique — 移除数组中重复的值。
 - array_merge_recursive — 递归地合并一个或多个数组
 - array_key_exists — 检查数组里是否有指定的键名或索引
@@ -31,9 +24,6 @@
 - array_intersect_assoc — 带索引检查计算数组的交集
 - array_flip — 交换数组中的键和值
 - array_combine — 创建一个数组，用一个数组的值作为键名，另一个数组的值作为其值
-
-----------
-
 - array_key_exists — 检查数组里是否有指定的键名或索引 bool
 - array_shift — 将数组开头的单元移出数组
 - array_merge() — 函数把一个或多个数组合并为一个数组。**注：**如果两个或更多个数组元素有相同的键名，则最后的元素会覆盖其他元素
@@ -82,7 +72,7 @@
 - strtoupper()	— 转大写
 - strtolower() — 转小写
 - stripslashes() — 反引用一个引用字符串
-
+- mb_strstr — 查找字符串在另一个字符串里的首次出现 返回查找字符开始到最后的字符
 
 ### Magic Methods ###
 
