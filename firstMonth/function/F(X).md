@@ -71,15 +71,12 @@
 - str_split — 将字符串转换为数组
 - strtoupper()	— 转大写
 - strtolower() — 转小写
-<<<<<<< HEAD
 - stripslashes() — 反引用一个引用字符串
 - chr() — 返回指定的字符 （与 ord() 互补）
 - ord() — 转换一个字符串第一个字节为 0-255 之间的值
- 
-=======
 - stripslashes() — 反引用一个引用字符串
 - mb_strstr — 查找字符串在另一个字符串里的首次出现 返回查找字符开始到最后的字符
->>>>>>> b65af40ba5bd07c9960a79b41ea9bbebea1d6edd
+
 
 ### Magic Methods ###
 
