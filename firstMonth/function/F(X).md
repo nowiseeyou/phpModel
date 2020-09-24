@@ -1,12 +1,3 @@
-### PHP常用函数（F(x)） ###
-
-- array_filter()  — 用回调函数过滤数组中的单元（非false情况下返回对应值）
-- mb_strstr — 查找字符串在另一个字符串里的首次出现 返回查找字符开始到最后的字符
-- range — 根据范围创建数组，包含指定的元素
-- bcmul — 2个任意精度数字乘法计算
-- bccomp — 比较两个任意精度的数字 返回 int。
-- bcsub — 2个任意精度数字的减法。
-
 #### PHP Filter 函数 ####
 
 1. filter_has_var() — 检查是否存在指定输入类型的变量。
@@ -18,6 +9,8 @@
 
 
 #### Array ####
+- array_filter()  — 用回调函数过滤数组中的单元（非false情况下返回对应值）
+- range — 根据范围创建数组，包含指定的元素
 - array_unique — 移除数组中重复的值。
 - array_merge_recursive — 递归地合并一个或多个数组
 - array_key_exists — 检查数组里是否有指定的键名或索引
@@ -31,9 +24,6 @@
 - array_intersect_assoc — 带索引检查计算数组的交集
 - array_flip — 交换数组中的键和值
 - array_combine — 创建一个数组，用一个数组的值作为键名，另一个数组的值作为其值
-
-----------
-
 - array_key_exists — 检查数组里是否有指定的键名或索引 bool
 - array_shift — 将数组开头的单元移出数组
 - array_merge() — 函数把一个或多个数组合并为一个数组。**注：**如果两个或更多个数组元素有相同的键名，则最后的元素会覆盖其他元素
@@ -81,10 +71,15 @@
 - str_split — 将字符串转换为数组
 - strtoupper()	— 转大写
 - strtolower() — 转小写
+<<<<<<< HEAD
 - stripslashes() — 反引用一个引用字符串
 - chr() — 返回指定的字符 （与 ord() 互补）
 - ord() — 转换一个字符串第一个字节为 0-255 之间的值
  
+=======
+- stripslashes() — 反引用一个引用字符串
+- mb_strstr — 查找字符串在另一个字符串里的首次出现 返回查找字符开始到最后的字符
+>>>>>>> b65af40ba5bd07c9960a79b41ea9bbebea1d6edd
 
 ### Magic Methods ###
 
@@ -126,19 +121,6 @@
 
 - get_defined_constants — 返回所有常量的关联数组，键是常量名，值是常量值
 
-### URL函数 ###
-
-- base64_decode — 对使用 MIME base64 编码的数据进行解码
-- base64_encode — 使用 MIME base64 对数据进行编码
-- get_headers — 湖区服务器响应一个 HTTP 请求所发送的所有标头
-- get_meta_tags — 从一个文件中提取所有的 meta 标签 content属性，返回一个数组
-- http_build_query — 生成 URL-encode 之后的请求字符串
-- parse_str — 将字符串解析成多个变量
-- parse_url — 解析 URL，返回其组成部分
-- rawurldecode — 对已编码的URL 字符串进行解码
-- rawurlencode — 按照 RFC 3986 对 URL 进行编码
-- urldecode — 解码已编码的 URL 字符串
-- urlencode — 编码 URL 字符串
 
 		# 设置应该报告何种PHP 错误
 		error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
