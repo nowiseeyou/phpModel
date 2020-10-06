@@ -109,6 +109,9 @@
 - declare 结构用来设定一段代码的执行指令 （暂时没搞懂）
 - get_loaded_extensions() — 返回所有编译并加载模块名的 array
 
+### CURL ###
+
+- curl_setopt() - 设置 cURL 传输选项
 
 ### 函数处理 函数 ###
 
