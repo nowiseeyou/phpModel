@@ -4,8 +4,6 @@ https://docs.w3cub.com/
 
 http://www.php-internals.com/book/ 
 
-TG:DaoHangQun
-
 ## 约定：##
 
 - 以一个下划线开头的属性名，是protected的属性
