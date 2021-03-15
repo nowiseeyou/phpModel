@@ -6,6 +6,7 @@
 4. filter_list() — 	返回包含所有得到支持的过滤器的一个数组。
 5. filter_var_array() — 获取多个变量，并进行过滤。
 6. filter_var() — 获取一个变量，并进行过滤。
+7. filter_input — 获取一个输入变量，并对其进行过滤。
 
 
 #### Array ####
