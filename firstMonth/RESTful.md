@@ -285,3 +285,11 @@ RESTful Services URI应该设置为一个直观简短的资源地址，Apache服
 	        }
 	    }
 	}
+
+
+### GET POST PUT DELETE ###
+
+- GET ： 获取济源
+- POST ：　新建／更新资源
+- PUT ：　更新资源
+- DELETE : 删除资源
