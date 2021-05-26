@@ -1,0 +1,10 @@
+### .htaccess 文件 ###
+
+<IfModule mod_rewrite.c>  
+RewriteEngine ON  
+RewriteCond %{REQUEST_FILENAME} !-d  
+RewriteCond %{REQUEST_FILENAME} !-f  
+RewriteRule (.+) index.php/$1  
+</IfModule>  
+
+Apache下可用 nginx暂时不清楚规则
