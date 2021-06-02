@@ -7,4 +7,4 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule (.+) index.php/$1  
 </IfModule>  
 
-Apache下可用 nginx暂时不清楚规则
+**Apache下可用 nginx暂时不清楚规则**
