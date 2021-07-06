@@ -14,6 +14,9 @@
  ####
 # php学习笔记
 
+
+	php artisan serve （laravel）
+
 https://docs.w3cub.com/
 
 http://www.php-internals.com/book/ 
