@@ -12,11 +12,12 @@
 #### 
 如果你不能用一种语言里面的基本特性写出好的代码，那你换成另外一种语言也无济于事。你会写出一样差的代码。我经常看到有些人 Java 代码写得相当乱，相当糟糕，却骂 Java 不好，雄心勃勃要换用 Go 语言。这些人没有明白，是否能写出好的代码在于人，而不在于语言。 
  ####
-# php学习笔记
-
-
+## php学习笔记##
+	# laravel
 	php artisan serve （laravel）
-
+	
+	# MVC
+	https://juejin.cn/post/6844903639991975949
 https://docs.w3cub.com/
 
 http://www.php-internals.com/book/ 
