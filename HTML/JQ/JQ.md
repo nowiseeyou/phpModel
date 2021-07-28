@@ -72,3 +72,24 @@
 	}  
 	  
 	</script>
+
+
+#列表切换#
+
+    $('.change_ul').click(function () {
+        $(".service-container li").hide()
+        getRandom()
+    });
+
+    function getRandom(){
+        var arr = [];
+        for(var i=0;i<5;i++){
+           var random = Math.floor(Math.random()*22)
+           if(arr.indexOf(random) !== -1){
+               i--;
+           }else{
+            arr.push(random)
+            $(".service-container li").eq(random).show()
+           }
+        }
+    }
