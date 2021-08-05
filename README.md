@@ -20,11 +20,12 @@
 	# PHP微服务框架即Micro Service Framework For PHP
 	https://github.com/pinguo/php-msf
 
+	# 很牛B的权限管理
+	https://casbin.org/docs/en/overview
+
 ## 前端小基础
 
 - JQ
 - css
-### 备忘 ###
 
-- laravel Redis
 
