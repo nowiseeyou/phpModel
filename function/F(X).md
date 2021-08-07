@@ -104,3 +104,11 @@
 
 		# 设置应该报告何种PHP 错误
 		error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
+
+
+### 密码散列算法 ###
+
+- password_get_info : 返回指定散列（hash）的相关信息
+- password_hash : 创建密码的散列（hash）
+- password_need_rehash :检测散列值是否匹配指定的选项
+- password_verify : 验证密码是否和散列值匹配
