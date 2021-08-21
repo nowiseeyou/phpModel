@@ -29,6 +29,9 @@
 
 	# ES(Elaticsearch)
 	https://www.elastic.co/cn/
+	# 下载地址
+	https://www.elastic.co/cn/downloads/past-releases#elasticsearch
+
 ## 前端小基础
 
 - JQ
