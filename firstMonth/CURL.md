@@ -255,3 +255,95 @@
         curl_close($ch);
         return $data;
     }
+
+### GET POST PUT DELETE ###
+
+    /**
+     * 发送http请求
+     * @param string $url 请求地址
+     * @param string $method http方法(GET POST PUT DELETE)
+     * @param array $data http请求数据
+     * @param array $header http请求头
+     * @param Int $type 请求数据类型 0-array  1-jason
+     * @return string|bool
+     */
+    public static function curl_api($url, $method = "POST", $data = array(), $header = array(), $type = '0')
+    {
+        $method = ucwords($method);
+        //检查地址是否为空
+        if (empty($url)) {
+            return false;
+        }
+        //控制请求方法范围
+        $httpMethod = array('GET', 'POST', 'PUT', 'DELETE');
+        $method = strtoupper($method);
+        if (!in_array($method, $httpMethod)) {
+            return false;
+        }
+        //请求头初始化
+        $request_headers = array();
+        $User_Agent = 'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.43 Safari/537.31';
+        $request_headers[] = 'User-Agent: ' . $User_Agent;
+        if ($header) {
+            foreach ($header as $v) {
+                $request_headers[] = $v;
+            }
+        }
+        $request_headers[] = 'Accept: text/html,application/json,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8';
+        switch ($method) {
+            case "POST":
+                $request_headers[] = "X-HTTP-Method-Override: POST";
+                break;
+            case "PUT":
+                $request_headers[] = "X-HTTP-Method-Override: PUT";
+                break;
+            case "DELETE":
+                $request_headers[] = "X-HTTP-Method-Override: DELETE";
+                break;
+            default:
+        }
+        //发送http请求
+        $ch = curl_init();
+
+        switch ($method) {
+            case "GET" :
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');//TRUE 时会设置 HTTP 的 method 为 GET，由于默认是 GET，所以只有 method 被修改时才需要这个选项。
+                curl_setopt($ch, CURLOPT_HTTPGET, true);//TRUE 时会设置 HTTP 的 method 为 GET，由于默认是 GET，所以只有 method 被修改时才需要这个选项。
+                $url = $url . '?' . http_build_query($data);
+                break;
+            case "POST":
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+                break;
+            case "PUT":
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+                break;
+            case "DELETE":
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+                break;
+            default:
+        }
+
+        //格式化发送数据
+        if ($data) {
+            if ($type) {
+                $dataValue = json_encode($data, JSON_UNESCAPED_UNICODE);
+            } else {
+                $dataValue = http_build_query($data);
+            }
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $dataValue);
+        }
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);//https
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $request_headers);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 50);
+        //发送请求获取返回响应
+        $result = curl_exec($ch);
+        if (strlen(curl_error($ch)) > 1) {
+            $result = false;
+        }
+        curl_close($ch);
+        return $result;
+    }
