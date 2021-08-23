@@ -33,6 +33,7 @@ class export
             //最少使用 2 Core , 最多使用 60% Core 数
             $executeCoreCount = ceil($cpuCoreCount * 0.6);
         }
+
         // AES 加密咨询
         $key = 'qweiopcvbnjdurtz';
         $iv = 'abcdefg15891348';
