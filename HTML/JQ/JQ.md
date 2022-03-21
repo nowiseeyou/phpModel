@@ -93,3 +93,8 @@
            }
         }
     }
+
+#回到顶部#
+
+    // 回到顶部
+    $('#goToTop').click(function(){ $('html , body').animate({scrollTop: 0},'slow'); });
